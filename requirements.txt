@@ -1,19 +1,33 @@
 blinker==1.9.0
 click==8.1.8
-
 gunicorn==23.0.0
 itsdangerous==2.2.0
 Jinja2==3.1.6
 MarkupSafe==3.0.2
 packaging==24.2
-Werkzeug==3.1.3
-pandas
-numpy
-statsmodels
+
+# 🔥 Downgraded Werkzeug for Flask 2.2.2 compatibility
+Werkzeug==2.2.3
+
 Flask==2.2.2
 Flask-Cors==3.0.10
 
+# Data manipulation
+pandas
+numpy
 
+# Time series modeling
+statsmodels
+
+# Machine Learning
 scikit-learn
 xgboost
+
+# Firebase integration
 firebase-admin
+
+# Optional utilities
+python-dateutil
+simplejson
+requests
+joblib
