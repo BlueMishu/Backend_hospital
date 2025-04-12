@@ -30,7 +30,6 @@ def load_resource_data():
     df = df.sort_values("Date")
     return df
 
-
 def load_arrival_data():
     df = pd.read_csv("./data/patient_arrivals.csv")
     df["date"] = pd.to_datetime(df["date"]).dt.date
