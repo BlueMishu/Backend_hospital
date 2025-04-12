@@ -1,0 +1,8 @@
+Flask==2.2.2
+Flask-Cors==3.0.10
+pandas
+numpy
+statsmodels
+scikit-learn
+xgboost
+firebase-admin
