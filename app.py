@@ -13,7 +13,7 @@ CORS(app)  # Enable CORS to allow frontend to access the backend
 
 # Initialize Firebase Admin SDK
 if not firebase_admin._apps:
-    cred = credentials.Certificate("/Users/bluemishu/Downloads/Project_solvit2/backend/hospital-resource-manage-firebase-key.json")
+    cred = credentials.Certificate("hospital-resource-manage-firebase-key.json")
     firebase_admin.initialize_app(cred)
 db = firestore.client()
 
@@ -25,14 +25,14 @@ patient_queue = []
 # ---------- Utility Functions ----------
 
 def load_resource_data():
-    df = pd.read_csv("/Users/bluemishu/Downloads/Project_solvit2/data/hospital_resources.csv")
+    df = pd.read_csv("./data/hospital_resources.csv")
     df['Date'] = pd.to_datetime(df['Date'])
     df = df.sort_values("Date")
     return df
 
 
 def load_arrival_data():
-    df = pd.read_csv("/Users/bluemishu/Downloads/Project_solvit2/data/patient_arrivals.csv")
+    df = pd.read_csv("./data/patient_arrivals.csv")
     df["date"] = pd.to_datetime(df["date"]).dt.date
     return df
 
