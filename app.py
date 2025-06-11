@@ -7,15 +7,18 @@ from xgboost import XGBRegressor
 import firebase_admin
 from firebase_admin import credentials, firestore
 from flask_cors import CORS
-
+import json
+import os
+from firebase_admin import credentials
 app = Flask(__name__)
 CORS(app)  # Enable CORS to allow frontend to access the backend
 
 # Initialize Firebase Admin SDK
-if not firebase_admin._apps:
-    cred = credentials.Certificate("hospital-resource-manage-firebase-key.json")
+firebase_key = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS_JSON")
+if firebase_key:
+    cred_dict = json.loads(firebase_key)
+    cred = credentials.Certificate(cred_dict)
     firebase_admin.initialize_app(cred)
-db = firestore.client()
 
 # Global variables to simulate session state (could also be handled with a persistent data store)
 resource_state = {}
